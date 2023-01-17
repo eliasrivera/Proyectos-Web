@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <!--Contenedor Principal-->
+    <div id="app">
+        <!--Contenedor del contador-->
+        <div id="time">
+            <div id="value"></div>
+            <div id="taskName"></div>
+        </div>
+
+        <!--Contenedor formulario de tareas-->
+        <div class="tasks-container">
+
+            <div class="form">
+                <form action="" id="form">
+                    <input id="txtTask" type="text" />
+                    <input id="btnAdd" type="submit" value="Agregar Tarea" />
+                </form>
+            </div>
+            <!--Visualización de tareas-->
+            <div class="tasks">
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
