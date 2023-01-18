@@ -37,8 +37,8 @@ function renderTasks(){                                         //Toma las tarea
         return `
             <div class=task>
                 <div class="completed">${task.completed 
-                    ? `<span class="done">Done</span>`        //Operador ternario afirmativo si la tarea está completada
-                    : `<button class="start-button" data-id="${task.id}">Start</button>`    //Si no está completada coloca un botón para iniciar tarea
+                    ? `<span class="done">Completada</span>`        //Operador ternario afirmativo si la tarea está completada
+                    : `<button class="start-button" data-id="${task.id}">Iniciar</button>`    //Si no está completada coloca un botón para iniciar tarea
                 }   
                 </div>
                 <div class="title">${task.title}
@@ -55,19 +55,19 @@ function renderTasks(){                                         //Toma las tarea
             if(!timer){                                                     //Si el timer está vacío
                 const id=  button.getAttribute("data-id");
                 startButtonHandler(id);
-                button.textContent="In progress...";
+                button.textContent="En progreso...";
             }
         })
     })
 }
 
 function startButtonHandler(id){
-    time=6;
+    time=25*60;
     current=id;
     const taskIndex=tasks.findIndex(task=>task.id==id);                     //Almacena el índice del elemento del arreglo de tasks que coincida con el id pasado como argumento
     
     taskName.textContent=tasks[taskIndex].title;
-
+    renderTime();
     timer=setInterval(()=>{                                                 //Cada seg. se llama a la función que resta el tiempo
         timeHandler(id);
     },1000);
@@ -87,8 +87,9 @@ function timeHandler(id){
 }
 
 function startBreak(){
-    time=4;
+    time=5*60;
     taskName.textContent="Break";
+    renderTime();
     timerBreak=setInterval(()=>{
         timerBreakHandler();
     },1000);
